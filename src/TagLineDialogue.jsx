@@ -3,7 +3,9 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import Chip from 'material-ui/Chip';
-import { map } from 'lodash';
+import FontIcon from 'material-ui/FontIcon';
+import Avatar from 'material-ui/Avatar';
+import { map, each } from 'lodash';
 
 const TagLineDialogue = (props: { handleClose: Function, open: boolean }) => {
   const styles = {
@@ -18,7 +20,29 @@ const TagLineDialogue = (props: { handleClose: Function, open: boolean }) => {
   const actions = [
     <FlatButton label="Close" primary onTouchTap={props.handleClose} />,
   ];
-  const languages = ['Javascript', 'Ruby', 'C', 'C++', 'NodeJS', 'HTML', 'React'];
+  const languages = [
+    {
+      name: 'Javascript',
+    },
+    {
+      name: 'Ruby',
+    },
+    {
+      name: 'C',
+    },
+    {
+      name: 'C++',
+    },
+    {
+      name: 'NodeJS',
+    },
+    {
+      name: 'HTML',
+    },
+    {
+      name: 'React',
+    },
+  ];
   return (
     <div>
       <Dialog
@@ -30,7 +54,12 @@ const TagLineDialogue = (props: { handleClose: Function, open: boolean }) => {
         onRequestClose={props.handleClose}
       >
         {map(languages, (language, key) => (
-          <Chip key={key} style={styles.chip}>{language}</Chip>
+          <div key={key}>
+            <Chip style={styles.chip}>
+              <Avatar icon={<FontIcon className="fa fa-github" />} />
+              {language.name}
+            </Chip>
+          </div>
         ))}
       </Dialog>
     </div>

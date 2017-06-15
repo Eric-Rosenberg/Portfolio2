@@ -6,6 +6,7 @@ import Chip from 'material-ui/Chip';
 import FontIcon from 'material-ui/FontIcon';
 import Avatar from 'material-ui/Avatar';
 import { map } from 'lodash';
+import { languages, frameworks, tools } from './known';
 
 const TagLineDialogue = (props: { handleClose: Function, open: boolean }) => {
   const styles = {
@@ -19,36 +20,6 @@ const TagLineDialogue = (props: { handleClose: Function, open: boolean }) => {
   };
   const actions = [
     <FlatButton label="Close" primary onTouchTap={props.handleClose} />,
-  ];
-  const languages = [
-    {
-      name: 'Javascript',
-      icon: 'devicon-javascript-plain colored',
-    },
-    {
-      name: 'Ruby',
-      icon: 'devicon-ruby-plain colored',
-    },
-    {
-      name: 'C',
-      icon: 'devicon-c-line colored',
-    },
-    {
-      name: 'C++',
-      icon: 'devicon-cplusplus-line colored',
-    },
-    {
-      name: 'NodeJS',
-      icon: 'devicon-nodejs-plain colored',
-    },
-    {
-      name: 'HTML 5',
-      icon: 'devicon-html5-plain colored',
-    },
-    {
-      name: 'React',
-      icon: 'devicon-react-original colored',
-    },
   ];
   return (
     <div>
@@ -65,13 +36,34 @@ const TagLineDialogue = (props: { handleClose: Function, open: boolean }) => {
             <Chip style={styles.chip}>
               <Avatar
                 icon={
-                  <FontIcon
-                    style={{ color: '' }}
-                    className={language.icon}
-                  />
+                  <FontIcon style={{ color: '' }} className={language.icon} />
                 }
               />
               {language.name}
+            </Chip>
+          </div>
+        ))}
+        <p style={{ paddingRight: 50, width: '100%' }}>Known Frameworks</p>
+        {map(frameworks, (framework, key) => (
+          <div key={key}>
+            <Chip style={styles.chip}>
+              <Avatar
+                icon={
+                  <FontIcon style={{ color: '' }} className={framework.icon} />
+                }
+              />
+              {framework.name}
+            </Chip>
+          </div>
+        ))}
+        <p style={{ paddingRight: 50, width: '100%' }}>Known Tools</p>
+        {map(tools, (tool, key) => (
+          <div key={key}>
+            <Chip style={styles.chip}>
+              <Avatar
+                icon={<FontIcon style={{ color: '' }} className={tool.icon} />}
+              />
+              {tool.name}
             </Chip>
           </div>
         ))}

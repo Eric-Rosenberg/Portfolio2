@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { green500 } from 'material-ui/styles/colors';
+import { green500, greenA200 } from 'material-ui/styles/colors';
 import FontIcon from 'material-ui/FontIcon';
 import TagLineDialogue from './TagLineDialogue';
 
@@ -34,6 +34,7 @@ class TagLine extends React.Component {
             this.setState({
               open: true,
             })}
+          hoverColor={greenA200}
         />
         <TagLineDialogue open={this.state.open} handleClose={this.onClose} />
         <p style={{ margin: 0 }}>

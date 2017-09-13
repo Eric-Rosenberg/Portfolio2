@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import FontIcon from 'material-ui/FontIcon';
-import { green500 } from 'material-ui/styles/colors';
+import { green500, greenA200 } from 'material-ui/styles/colors';
 import Picture from './Picture';
 import TagLine from './TagLine';
 
@@ -43,21 +43,30 @@ class App extends Component {
           <TagLine />
           <hr style={dividerStyle} />
           <div style={{ flexDirection: 'row' }}>
-            <FontIcon
-              className="fa fa-github"
-              color={green500}
-              style={iconStyles}
-            />
-            <FontIcon
-              className="fa fa-bitbucket"
-              color={green500}
-              style={iconStyles}
-            />
-            <FontIcon
-              className="fa fa-envelope"
-              color={green500}
-              style={iconStyles}
-            />
+            <a href="https://github.com/Eric-Rosenberg">
+              <FontIcon
+                className="fa fa-github"
+                color={green500}
+                style={iconStyles}
+                hoverColor={greenA200}
+              />
+            </a>
+            <a href="https://bitbucket.org/erosenberg1/">
+              <FontIcon
+                className="fa fa-bitbucket"
+                color={green500}
+                style={iconStyles}
+                hoverColor={greenA200}
+              />
+            </a>
+            <a href="mailto: roseneric15@gmail.com">
+              <FontIcon
+                className="fa fa-envelope"
+                color={green500}
+                style={iconStyles}
+                hoverColor={greenA200}
+              />
+            </a>
           </div>
         </div>
       </MuiThemeProvider>
